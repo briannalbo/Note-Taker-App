@@ -1,10 +1,10 @@
 const express = require('express');
 
 
-const routeONE = require('./routes/htmlNotes');
-const routeTWO = require('./routes/index.js')
+const routeONE = require('./routes/apiRoutes.js');
+const routeTWO = require('./routes/htmlRoutes.js');
 // const clogger = ('./middleware/clog')
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3003;
 
 const app = express();
 
@@ -15,8 +15,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use('/', routeONE)
-app.use('/api', routeTWO);
+app.use('/', routeTWO)
+app.use('/api', routeONE);
 
 // app.use(clogger);
 
