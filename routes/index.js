@@ -1,6 +1,6 @@
 const express = require('express');
 
-const noteRoute = require('./notes').default;
+const noteRoute = require('./htmlNotes').default;
 const app = express();
 
 app.use('/notes', noteRoute);

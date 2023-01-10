@@ -3,7 +3,7 @@ const tools =  require('../helpers/fsUtils');
 const path = require('path');
 
 
-notes.get('./public/notes', (req, res) => {
+notes.get('/notes', (req, res) => {
     tools
     .getNotes()
     .then((data) => {
@@ -18,7 +18,7 @@ notes.get('./public/notes', (req, res) => {
 
 
 
-notes.post("./public/notes", (req, res) => {
+notes.post('/notes', (req, res) => {
 
     tools
     .newNote(req.body)
