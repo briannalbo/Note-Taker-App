@@ -1,9 +1,14 @@
 const notes = require('express').Router();
-const { readFromFile, readAndAppend, writeToFile } =  require('../helpers/fsUtils');
+const tools =  require('../helpers/fsUtils');
 
 
-notes.get('/', (req, res) => {
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+notes.get('./public/notes', (req, res) => {
+    tools
+    .getNotes()
+    .then((data) => {
+       return res.json(data)
+    })
+    .catch((err) => res.status(500).json(err))
 });
 
 notes.get('/:id', (req, res) => {
@@ -51,4 +56,4 @@ notes.post("/", (req, res) => {
     }
 });
 
-export default notes;
+module.exports = notes;

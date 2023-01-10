@@ -1,34 +1,38 @@
 const fs = require('fs');
 const util = require('util');
+const uuidv1 = require('uuid/v1');
 
 const readFromFile = util.promisify(fs.readFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
-/**
- *  Function to write data to the JSON file given a destination and some content
- *  @param {string} destination The file you want to write to.
- *  @param {object} content The content you want to write to the file.
- *  @returns {void} Nothing
- */
-const writeToFile = (destination, content) =>
-  fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
-    err ? console.error(err) : console.info(`\nData written to ${destination}`)
-  );
-/**
- *  Function to read data from a given a file and append some content
- *  @param {object} content The content you want to append to the file.
- *  @param {string} file The path to the file you want to save to.
- *  @returns {void} Nothing
- */
-const readAndAppend = (content, file) => {
-  fs.readFile(file, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-    } else {
-      const parsedData = JSON.parse(data);
-      parsedData.push(content);
-      writeToFile(file, parsedData);
-    }
-  });
+function read() {
+  return readFromFile('db/db.json', 'utf8');
 };
 
-module.exports = { readFromFile, writeToFile, readAndAppend };
+function write(note) {
+  return writeFileAsync('db/db.json', JSON.stringify(note));
+};
+
+function getNotes() {
+  return this.read().then((notes) => {
+    let parsedNotes;
+  
+
+  return parsedNotes; 
+  }
+)}
+
+function newNote(note){
+  const { title, text } = note; 
+
+  const nextNote = { title, text, id: uuidv1() };
+
+  return this.getNotes()
+  .then((notes) => [...notes, nextNote])
+  .then((updatedNotes) => this.write(updatedNotes))
+  .then(() => nextNote);
+};
+
+
+
+module.exports = { read, write, getNotes, newNote }
