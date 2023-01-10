@@ -14,4 +14,4 @@ const clog = (req, res, next) => {
     }
     next();
 };
-exports.clog = clog;
+module.exports = { clog };

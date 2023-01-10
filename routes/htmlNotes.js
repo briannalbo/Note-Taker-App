@@ -1,6 +1,6 @@
 const notes = require('express').Router();
 const tools =  require('../helpers/fsUtils');
-const path = require('path');
+
 
 
 notes.get('/notes', (req, res) => {

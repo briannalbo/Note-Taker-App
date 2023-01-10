@@ -1,22 +1,25 @@
-const express = require("express");
+const express = require('express');
 
-const tools = require('./helpers/fsUtils');
-const path = require('path');
-const { clog } = require('./middleware/clog')
+
+const routeONE = require('./routes/htmlNotes');
 const routeTWO = require('./routes/index.js')
-const  api = require('./db/db.json')
+const clogger = ('./middleware/clog')
 const PORT = process.env.PORT || 3002;
 
 const app = express();
 
-app.use(clog);
 
 
-app.use(express.urlencoded({ extended: true }));
+
+
 app.use(express.json());
-app.use('/routes', routeTWO);
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use('/api', routeTWO);
+app.use('/', routeONE)
+// app.use(clogger);
 
-app.use(express.static("public"));
+
 
 
 

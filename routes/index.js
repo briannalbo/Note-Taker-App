@@ -1,8 +1,13 @@
-const express = require('express');
+const notes = require('express').Router();
+const path = require('path');
 
-const noteRoute = require('./htmlNotes').default;
-const app = express();
+notes.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
 
-app.use('/notes', noteRoute);
+notes.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+// app.use('/notes', noteRoute);
 
-module.exports = app;
+module.exports = notes;
