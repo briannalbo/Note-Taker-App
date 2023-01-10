@@ -1,6 +1,6 @@
 const express = require("express");
 
-
+const tools = require('./helpers/fsUtils');
 const path = require('path');
 const { clog } = require('./middleware/clog')
 const api = require('./routes/index.js')
@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(clog);
-const fs = require('fs');
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -31,7 +31,8 @@ app.get('*', (req, res) => {
 });
 
 app.get("api/notes", (req, res) => {
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    tools
+    .read("./db/db.json", "utf8", (err, data) => {
         if (err) {
             console.log(err);
         } 
