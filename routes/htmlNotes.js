@@ -1,9 +1,9 @@
-const notes = require('express').Router();
+const ROUTER = require('express').Router();
 const tools =  require('../helpers/fsUtils');
 
 
 
-notes.get('/notes', (req, res) => {
+ROUTER.get('/notes', (req, res) => {
     tools
     .getNotes()
     .then((data) => {
@@ -18,7 +18,7 @@ notes.get('/notes', (req, res) => {
 
 
 
-notes.post('/notes', (req, res) => {
+ROUTER.post('/notes', (req, res) => {
 
     tools
     .newNote(req.body)
@@ -28,4 +28,4 @@ notes.post('/notes', (req, res) => {
 
 });
 
-module.exports = notes;
+module.exports = ROUTER;
