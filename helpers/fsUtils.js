@@ -13,7 +13,7 @@ function write(note) {
   return writeFileAsync('db/db.json', JSON.stringify(note));
 };
 
-function getNotes() {
+function getNotes(note) {
   return this.read().then((notes) => {
     let parsedNotes;
 

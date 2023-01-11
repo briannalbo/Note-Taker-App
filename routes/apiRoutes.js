@@ -1,11 +1,11 @@
 const ROUTER = require('express').Router();
-const tools =  require('../helpers/fsUtils');
+const { read, write, getNotes, newNote} =  require('../helpers/fsUtils');
 
 
 
 ROUTER.get('/notes', (req, res) => {
-    tools
-    .getNotes()
+    
+    getNotes()
     .then((notes) => {
        return res.json(notes)
     })
@@ -20,7 +20,6 @@ ROUTER.get('/notes', (req, res) => {
 
 ROUTER.post('/notes', (req, res) => {
 
-    tools
     newNote(req.body)
     .then((note) => res.json(note))
     .catch((err) => res.status(500).json(err));
