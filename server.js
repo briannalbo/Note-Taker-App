@@ -1,31 +1,45 @@
 const express = require('express');
+const path = require('path');
+// const { clogger } = require('./middleware/clog')
 
+const api = require('./routes/index.js');
 
-const routeONE = require('./routes/apiRoutes.js');
-const routeTWO = require('./routes/htmlRoutes.js');
-// const clogger = ('./middleware/clog')
 const PORT = process.env.PORT || 3003;
 
 const app = express();
 
 
-
+// app.use(clogger);
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', api);
+
 app.use(express.static('public'));
-app.use('/', routeTWO)
-app.use('/api', routeONE);
-
-// app.use(clogger);
 
 
 
+app.get('/notes', (req, res) => 
+    res.sendFile(path.join(__dirname, './public/notes.html'))
+);
+
+app.get('/*', (req, res) => 
+    res.sendFile(path.join(__dirname, './public/index.html'))
+);
+
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../public/notes.html'));
+// });
 
 
 
 
+
+
+// app.listen(3000)
 app.listen(PORT, () => {
 console.log(`im here`)
 }
