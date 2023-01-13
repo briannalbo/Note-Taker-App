@@ -1,41 +1,12 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text"
+        "title": "new note",
+        "text": "lets see",
+        "id": "61506d20-92da-11ed-8eaf-ab459809155f"
     },
     {
-        "title": "testing",
-        "text": "again",
-        "note_id": "b2726eb0-927b-11ed-8b1e-95f9286f42b5"
-    },
-    {
-        "title": "new ",
-        "text": "note",
-        "note_id": "4c814160-927d-11ed-852b-bf436ee92d44"
-    },
-    {
-        "title": "note",
-        "text": "notes",
-        "note_id": "46484770-927e-11ed-8528-dd1bb32ad6aa"
-    },
-    {
-        "title": "note",
-        "text": "testdddd",
-        "note_id": "82956a20-9281-11ed-8ca0-8fae5da59b9d"
-    },
-    {
-        "title": "testing1",
-        "text": "testinnng",
-        "note_id": "8cabcfe0-9281-11ed-8185-ee81ea7328e4"
-    },
-    {
-        "title": "hello",
-        "text": "world",
-        "note_id": "6dbeb720-928e-11ed-86d4-0f8b7046a967"
-    },
-    {
-        "title": "fluff",
-        "text": "fluff",
-        "note_id": "931aeca0-928e-11ed-8077-374ca9dc95b9"
+        "title": "Class Schedule",
+        "text": "6:30PM-9:30PM Mon, Tues, Thurs.",
+        "id": "ba8cf840-92da-11ed-8162-09ac201c7a9d"
     }
 ]
