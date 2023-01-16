@@ -1,27 +1,9 @@
-// const ROUTER = require('express').Router();
-// const path = require('path');
-
-
-
-
-// ROUTER.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../public/index.html'));
-// });
-
-
-// ROUTER.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../public/notes.html'));
-// });
-
-// // module.exports = ROUTER;
-
+// Import modular routers for /notes
 const express = require('express');
-
-// Import our modular routers for /notes
 const notesRouter = require('./notes');
 
 const app = express();
 
 app.use('/notes', notesRouter);
-
+//exports express application using '/notes' and the notes.js file to the server file
 module.exports = app;
