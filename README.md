@@ -34,5 +34,5 @@ This project is licensed under the Apache License 2.0.
   Additional contributions are not needed at this time.
 
   ## Questions
-  For any questions or concerns, please refer to my github account or contact me via email:
+  For any questions or concerns, please refer to my github account:
 - https://github.com/briannalbo
